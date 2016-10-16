@@ -1,5 +1,5 @@
 from sklearn import *
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from numpy import *
 import csv
 
@@ -22,6 +22,9 @@ x = array(x)
 CENTROIDS = 10
 prediction = cluster.KMeans(n_clusters=CENTROIDS).fit_predict(x)
 
-plt.subplot(221)
-plt.scatter(x[:,0], x[:,1], c=prediction)
-plt.show()
+# plt.subplot(221)
+# plt.scatter(x[:,0], x[:,1], c=prediction)
+# plt.show()
+
+for i in range(100):
+    print("{},{}".format(csv_headings[i+1], prediction[i]))
