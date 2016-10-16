@@ -1,5 +1,6 @@
 from sklearn import *
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 from numpy import *
 import csv
 from io import open
@@ -23,9 +24,12 @@ x = array(x)
 CENTROIDS = 10
 prediction = cluster.KMeans(n_clusters=CENTROIDS).fit_predict(x)
 
-# plt.subplot(221)
-# plt.scatter(x[:,0], x[:,1], c=prediction)
-# plt.show()
-
 for i in range(100):
     print("{},{}".format(header[i+1], prediction[i]))
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+# plt.scatter(x[:,0], x[:,1], c=prediction)
+for x in data[:, 1:-1]:
+    ax.scatter(range(1, 101), range(1, 101), x, c=prediction)
+plt.show()
