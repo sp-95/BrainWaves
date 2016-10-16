@@ -1,5 +1,5 @@
 from sklearn import linear_model, cluster
-import matplotlib.pyplot as plt
+from matplotlib import pyplot, cm
 from numpy import *
 import csv
 from io import open
@@ -30,7 +30,8 @@ prediction = cluster.KMeans(n_clusters=CENTROIDS).fit_predict(x)
 for i in range(size):
     print("{},{}".format(header[i+start], prediction[i]+1))
 
-plt.subplot(111)
-for i in range(len(data)):
-    plt.scatter(repeat(array(i), size), data[i, start:end+1], c=prediction)
-plt.show()
+cmap = cm.jet
+pyplot.subplot(111)
+for i in range(size):
+    pyplot.plot(data[:, i+start], color=cmap(prediction[i]/CENTROIDS), label=header[i+start])
+pyplot.show()
