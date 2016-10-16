@@ -2,13 +2,14 @@ from sklearn import *
 # import matplotlib.pyplot as plt
 from numpy import *
 import csv
+from io import open
 
 path_to_csv = './soc_gen_data/train.csv'
 data = []
-with open(path_to_csv, newline='') as f:
-    csv_reader = csv.reader(f)
-    csv_headings = next(csv_reader)
-    for row in csv_reader:
+with open(path_to_csv, newline='') as file:
+    reader = csv.reader(file)
+    header = next(reader)
+    for row in reader:
         data.append([float(x) for x in row])
     data = array(data)
 
@@ -27,4 +28,4 @@ prediction = cluster.KMeans(n_clusters=CENTROIDS).fit_predict(x)
 # plt.show()
 
 for i in range(100):
-    print("{},{}".format(csv_headings[i+1], prediction[i]))
+    print("{},{}".format(header[i+1], prediction[i]))
