@@ -31,6 +31,11 @@ clusters = kmeans.labels_
 # for i in range(size):
 #     print("{},{}".format(header[i+start], clusters[i]+1))
 
+# with open('result.txt', 'w') as result:
+#     result.write("Asset,Cluster\n")
+#     for i in range(size):
+#         result.write("{},{}\n".format(header[i+start], clusters[i]+1))
+
 cmap = cm.jet
 pyplot.subplot(211)
 for i in range(size):
@@ -56,9 +61,14 @@ x = np.array(x)
 
 predictions = kmeans.predict(x)
 
-print("Asset,Cluster")
-for i in range(size):
-    print("{},{}".format(header[i+start], predictions[i]+1))
+# print("Asset,Cluster")
+# for i in range(size):
+#     print("{},{}".format(header[i+start], predictions[i]+1))
+
+with open('result.txt', 'w') as result:
+    result.write("Asset,Cluster\n")
+    for i in range(size):
+        result.write("{},{}\n".format(header[i+start], predictions[i]+1))
 
 cmap = cm.jet
 pyplot.subplot(212)
