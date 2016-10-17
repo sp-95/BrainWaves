@@ -8,6 +8,7 @@ The problem you will be working on is related to trading in financial markets an
 Following is the first part of the problem. **Given the time series data of 100 financial assets which are correlated, you have to cluster them into similar groups. These groups may relate to market segments such as Metals & Minerals, Banking/Finance etc.**
 #### Data
 The dataset is common for both the problems. The training file(train.csv) contains the time-series data. Below is the relevant explanation of the different columns.
+
 |Column   |Explanation|
 |:-------:|-----------|
 |Time     |Integer representing the time factor|
